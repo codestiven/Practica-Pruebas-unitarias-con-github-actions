@@ -29,4 +29,6 @@ jobs:
 
     - name: Merge to main
       if: github.ref == 'refs/heads/dev' && success()
-      run: git merge --ff-only refs/heads/dev
+      run: |
+        git merge --allow-unrelated-histories dev
+        git push
