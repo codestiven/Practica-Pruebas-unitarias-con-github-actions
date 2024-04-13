@@ -12,7 +12,7 @@ def saludo(nombre):
 
 @app.route('/template')
 def template():
-    return render_template('template.html', message='¡Hola desde la plantilla!')
+    return render_template('template.html', message='¡Hola desde la plantdilla!')
 
 if __name__ == '__main__':
     app.run(debug=True)
