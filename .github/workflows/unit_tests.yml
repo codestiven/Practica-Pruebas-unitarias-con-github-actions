@@ -27,6 +27,12 @@ jobs:
       run: |
         python -m unittest discover -s tests
 
-    - name: Merge to main
-      if: github.ref == 'refs/heads/dev' && success()
-      run: git merge --ff-only refs/heads/dev
+  merge_to_main:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/dev' && success()
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Merge to main
+        run: git merge --ff-only refs/heads/dev
